@@ -1,0 +1,1435 @@
+@import "vars";
+@import "colors";
+
+@mixin noRadius {
+	border-radius: 0;
+}
+
+@mixin animationEase {
+	transition: all 0.4s ease 0s;
+}
+
+@font-face {
+  font-family: 'Montserrat';
+  src: url('../fonts/Montserrat-Regular.eot');
+  src: url('../fonts/Montserrat-Regular.svg#Montserrat-Regular') format('svg'),
+       url('../fonts/Montserrat-Regular.eot?#iefix') format('embedded-opentype'),
+       url('../fonts/Montserrat-Regular.woff') format('woff'),
+       url('../fonts/Montserrat-Regular.ttf') format('truetype');
+}
+
+* {
+	-webkit-font-smoothing: antialiased;
+	font-smoothing: antialiased;
+}
+
+body {
+	background: $body;
+}
+
+/* =================================
+   Typography
+   ================================= */
+@import "typo";
+
+/* =================================
+   Layout
+   ================================= */
+#wrapper {
+	padding-left: $sidebarWidth;
+	@include animationEase;
+}
+
+#sidebar-wrapper {
+	margin-left: -$sidebarWidth;
+	left: $sidebarWidth;
+	width: $sidebarWidth;
+	background: $sidebarColor;
+	position: fixed;
+	height: 100%;
+	overflow-y: auto;
+	z-index: 1000;
+	@include animationEase;
+}
+
+#content-wrapper {
+	width: 100%;
+}
+
+.main-content.padding {
+	padding: 20px;
+}
+
+/* =================================
+   Sidebar
+   ================================= */
+.sidebar-icon {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	width: 64px;
+	height: 100%;
+	background: $iconSidebarColor;
+	text-align: center;
+	li {
+		height: 64px;
+		line-height: 60px;
+		a {
+			color: #fff;
+			color: rgba(255,255,255,0.8);
+			display: block;
+			&:hover {
+				color: #fff;
+				text-decoration: none;
+				background: $sidebarColor;
+			}
+		}
+	}
+}
+
+.sidebar-header {
+	background: $mainAccent;
+	height: 64px;
+	line-height: 60px;
+}
+
+.sidebar-group {
+	position: absolute;
+	top: 0;
+	left: 64px;
+	width: $sidebarGroupWidth;
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	li {
+		line-height: 40px;
+		text-indent: 20px;
+		color: #8693a0;
+		font-size: 18px;
+		font-weight: lighter;
+		font-family: "Maven Pro", sans-serif;
+		a {
+			color: #8693a0;
+			display: block;
+			&:hover {
+				color: #fff;
+				background: rgba(0,0,0,0.2);
+			}
+		}
+	}
+	& > .navigation-header {
+		font-family: "Montserrat", sans-serif;
+		text-transform: uppercase;
+		height: 64px;
+		line-height: 60px;
+		color: #c9d5e0;
+	}
+}
+
+/* =================================
+   Header
+   ================================= */
+.main-header {
+	background: $siteHeader;
+	height: 64px;
+	line-height: 64px;
+	h3 {
+		color: #2f4254;
+		margin: 0;
+		margin-left: 20px;
+		line-height: 60px;
+		display: inline-block;
+	}
+}
+
+.user-profile {
+	float: right;
+	margin-right: 20px;
+	height: 64px;
+	line-height: 60px;
+	position: relative;
+	a {
+		&:hover {
+			text-decoration: none;
+		}
+	}
+	img {
+		max-height: 32px;
+	}
+	.user-dropdown {
+		display: block;
+		height: 64px;
+		padding: 0 15px;
+		&:hover, {
+			background: $mainAccent;
+			color: #fff;
+		}
+	}
+}
+
+.user-profile.open > a {
+	background: $mainAccent;
+	color: #fff;
+}
+
+#show-menu {
+	display: none;
+}
+
+/* =================================
+   Modules
+   ================================= */
+@import "modules";
+
+/* =================================
+   Error page
+   ================================= */
+.full-page {
+	background: $mainAccent;
+	color: #fff;
+	text-align: center;
+	margin: 100px 0;
+	h1 {
+		font-size: 72px;
+		display: block;
+	}
+	a {
+		color: #fff;
+	}
+}
+
+.login-box {
+	background-color: #fff;
+	padding: 20px;
+	width: 100%;
+	max-width: 320px;
+	margin: 0 auto;
+	text-align: left;
+	h1 {
+		font-size: 22px;
+		color: $mainAccent;
+		margin-top: 0;
+		text-align: center;
+		margin-bottom: 20px;
+	}
+	.form-control {
+		margin-bottom: 20px;
+	}
+	a {
+		color: $mainAccent;
+		float: right;
+	}
+}
+
+/* =================================
+   Alerts
+   ================================= */
+.alert {
+	@include noRadius;
+	border: 0;
+	&.alert-success {
+		background: $moduleGreen;
+		color: lighten($moduleGreen, 40%);
+		border-left: 3px solid darken($moduleGreen, 20%);
+	}
+	&.alert-info {
+		background: $moduleBlue;
+		color: lighten($moduleBlue, 40%);
+		border-left: 3px solid darken($moduleBlue, 20%);
+	}
+	&.alert-warning {
+		background: $moduleOrange;
+		color: lighten($moduleOrange, 40%);
+		border-left: 3px solid darken($moduleOrange, 20%);
+	}
+	&.alert-danger {
+		background: $moduleRed;
+		color: lighten($moduleRed, 40%);
+		border-left: 3px solid darken($moduleRed, 20%);
+	}
+	a {
+		color: #fff;
+		text-decoration: underline;
+	}
+}
+
+.close {
+	opacity: 0.5;
+}
+
+/* =================================
+   Buttons
+   ================================= */
+@mixin makeButton($color) {
+	border-color: $color;
+	color: #fff;
+	background: $color;
+	&:hover, &:focus, &:active, &.active {
+		background: darken($color, 10%);
+		color: #fff;
+	}
+}
+
+.btn {
+	@include noRadius;
+	border: 0;
+	color: #2b3035;
+	background: $defaultGray;
+	font-family: "Montserrat", sans-serif;
+	font-weight: normal;
+	&:hover, &:focus, &:active, &.active {
+		background: #2b3035;
+		color: #fff;
+		.caret {
+			border-top-color: #fff;
+		}
+	}
+}
+
+.btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .open .dropdown-toggle.btn-primary {
+	background: #2b3035;
+}
+
+.btn-primary {
+	@include makeButton($mainAccent);
+}
+
+.btn-success {
+	@include makeButton($moduleGreen);
+}
+
+.btn-info {
+	@include makeButton($moduleBlue);
+}
+
+.btn-warning {
+	@include makeButton($moduleYellow);
+}
+
+.btn-danger {
+	@include makeButton($moduleRed);
+}
+
+.btn-orange {
+	@include makeButton($moduleOrange);
+}
+
+.btn-pink {
+	@include makeButton($modulePink);
+}
+
+.btn-grape {
+	@include makeButton($moduleGrape);
+}
+
+.btn-deepsea {
+	@include makeButton($moduleDeepSea);
+}
+
+.btn-lime {
+	@include makeButton($moduleLime);
+}
+
+.btn-facebook {
+	@include makeButton($moduleFacebook);
+}
+
+.btn-twitter {
+	@include makeButton($moduleTwitter);
+}
+
+.btn-linkedin {
+	@include makeButton($moduleLinkedIn);
+}
+
+.btn-group.open .caret {
+	border-top-color: #fff;
+}
+
+.btn-group.open .btn-default .caret {
+	border-top-color: $sidebarColor;
+}
+
+/* =================================
+   Tables
+   ================================= */
+.table {
+	thead {
+		th {
+			background: $mainAccent;
+			color: #fff;
+			text-transform: uppercase;
+			border: 0 !important;
+		}
+	}
+}
+
+.table thead > tr > th, .table tbody > tr > th,
+.table tfoot > tr > th, .table thead > tr > td,
+.table tbody > tr > td, .table tfoot > tr > td {
+	border-color: #ccd6e0;
+}
+
+.table-striped > tbody > tr:nth-child(2n+1) > td, .table-striped > tbody > tr:nth-child(2n+1) > th {
+	background: #f6f6f6;
+}
+
+.table-bordered > thead > tr > th, .table-bordered > tbody > tr > th {
+	border: 0 !important;
+}
+
+.table-bordered {
+	border-color: $mainAccent;
+}
+
+.table-bordered > tfoot > tr > th, .table-bordered > thead > tr > td,
+.table-bordered > tbody > tr > td, .table-bordered > tfoot > tr > td {
+	border-color: #ccd6e0;
+}
+
+.table .progress {
+	margin-bottom: 0;
+}
+
+/* =================================
+   Tabs
+   ================================= */
+.nav-tabs {
+	border-bottom: 0;
+}
+
+.nav-tabs > li {
+	margin-bottom: 0;
+}
+
+.nav-tabs > li > a {
+	@include noRadius;
+	border: 0;
+	background: $sidebarColor;
+	color: #fff;
+	margin-right: 0;
+	&:hover, &:focus, &:active, &.active, &.open {
+		background: darken($sidebarColor, 20%);
+		.caret {
+			border-top-color: #fff;
+			border-bottom-color: #fff;
+		}
+	}
+	.caret {
+		border-top-color: #fff;
+		border-bottom-color: #fff;
+	}
+}
+
+.nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus {
+	border: 0;
+	background: $mainAccent;
+	color: #fff;
+}
+
+.nav .open > a, .nav .open > a:hover, .nav .open > a:focus {
+	background: $mainAccent;
+	color: #fff;
+	.caret {
+		border-top-color: #fff;
+		border-bottom-color: #fff;
+	}
+}
+
+.nav-pills > li > a {
+	@include noRadius;
+}
+
+.nav-pills > li.active > a, .nav-pills > li.active > a:hover, .nav-pills > li.active > a:focus {
+	background: $mainAccent;
+}
+
+.panel-default {
+	border-color: $mainAccent;
+	@include noRadius;
+}
+
+.panel-default > .panel-heading {
+	background-color: $mainAccent;
+	border-color: $mainAccent;
+	@include noRadius;
+}
+
+.panel-title a {
+	color: lighten($mainAccent, 40%);
+	&:hover, &:active, &:focus {
+		color: #fff;
+	}
+}
+
+.panel-group .panel {
+	@include noRadius;
+}
+
+/* =================================
+   Progress bars
+   ================================= */
+.progress {
+	@include noRadius;
+	box-shadow: none;
+	background-color: $defaultGray;
+	height: 15px;
+}
+
+.progress-bar {
+	background-color: $mainAccent;
+	box-shadow: none;
+}
+
+.progress-bar-success {
+	background-color: $moduleGreen;
+}
+
+.progress-bar-info {
+	background-color: $moduleBlue;
+}
+
+.progress-bar-warning {
+	background-color: $moduleOrange;
+}
+
+.progress-bar-danger {
+	background-color: $moduleRed;
+}
+
+/* =================================
+   List groups
+   ================================= */
+.list-group-item:first-child, .list-group-item:last-child {
+	@include noRadius;
+}
+
+.list-group-item.active, .list-group-item.active:hover, .list-group-item.active:focus {
+	background-color: $mainAccent;
+	border-color: $mainAccent;
+}
+
+/* =================================
+   Labels
+   ================================= */
+.label {
+	@include noRadius;
+}
+
+.label-primary {
+	background-color: $mainAccent;
+}
+
+.label-success {
+	background-color: $moduleGreen;
+}
+
+.label-info {
+	background-color: $moduleBlue;
+}
+
+.label-warning {
+	background-color: $moduleOrange;
+}
+
+.label-danger {
+	background-color: $moduleRed;
+}
+
+/* =================================
+   Forms
+   ================================= */
+.form-control {
+	@include noRadius;
+	box-shadow: none;
+	border-width: 2px;
+	border-color: $defaultGray;
+	height: 38px;
+	&:focus {
+		box-shadow: none;
+		border-color: $mainAccent;
+	}
+}
+
+.control-label {
+	font-weight: normal;
+}
+
+.input-group-addon {
+	border: 0;
+	background: $defaultGray;
+	border-radius: 0;
+}
+
+.input-group .btn {
+	height: 38px;
+}
+
+.has-success .help-block, .has-success .control-label {
+	color: $moduleGreen;
+}
+
+.has-success .form-control {
+	border-color: $moduleGreen;
+	box-shadow: none;
+	&:focus {
+		border-color: darken($moduleGreen, 20%);
+		box-shadow: none;
+	}
+}
+
+.has-warning .help-block, .has-warning .control-label {
+	color: $moduleOrange;
+}
+
+.has-warning .form-control {
+	border-color: $moduleOrange;
+	box-shadow: none;
+	&:focus {
+		border-color: darken($moduleOrange, 20%);
+		box-shadow: none;
+	}
+}
+
+.has-error .help-block, .has-error .control-label {
+	color: $moduleRed;
+}
+
+.has-error .form-control {
+	border-color: $moduleRed;
+	box-shadow: none;
+	&:focus {
+		border-color: darken($moduleRed, 20%);
+		box-shadow: none;
+	}
+}
+
+.input-avatar {
+	overflow: hidden;
+	margin-bottom: 15px;
+	a {
+		margin-bottom: 10px;
+	}
+	.input-avatar-preview {
+		background: $defaultGray;
+		height: 75px;
+		width: 75px;
+		text-align: center;
+		line-height: 75px;
+		color: $defaultMute;
+		float: left;
+		margin-right: 15px;
+	}
+}
+
+/* =================================
+   Components
+   Tasks
+   ================================= */
+.list-tasks {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	li {
+		padding: 10px 15px;
+		border-bottom: 1px solid $defaultGray;
+		position: relative;
+		span {
+			float: left;
+			height: 24px;
+			margin-top: 15px;
+			margin-right: 15px;
+			color: $moduleGreen;
+		}
+		small {
+			color: $defaultMute;
+		}
+		a {
+			display: block;
+			font-size: 22px;
+		}
+		& > i {
+			position: absolute;
+			top: 20px;
+			right: 20px;
+			color: $defaultGray;
+		}
+		&.task-tag-red {
+			border-left: 2px solid $moduleRed;
+		}
+		&.task-tag-blue {
+			border-left: 2px solid $moduleBlue;
+		}
+		&.task-tag-yellow {
+			border-left: 2px solid $moduleYellow;
+		}
+		&.task-tag-green {
+			border-left: 2px solid $moduleGreen;
+		}
+	}
+	.task-header {
+		background: $defaultGray;
+		font-family: "Montserrat", sans-serif;
+		font-size: 16px;
+		padding: 5px 14px;
+		text-transform: uppercase;
+		border: 0;
+		&.task-overdue {
+			background: $moduleRed;
+			color: #fff;
+		}
+	}
+}
+
+/* =================================
+   Activity feed
+   ================================= */
+.activity-feed-wrapper {
+	box-shadow: inset 5px 0 0 $defaultGray;
+	.activity-feed-items {
+		padding: 0 0 0 16px;
+		.activity-feed-item {
+			border: 2px solid $defaultGray;
+			margin-bottom: 15px;
+			padding: 15px;
+			@include animationEase;
+			h4 {
+				margin-top: 0;
+				color: $mainAccent;
+				i {
+					color: $defaultGray;
+				}
+			}
+			small {
+				color: $defaultMute;
+			}
+			span {
+				text-indent: -9999px;
+				width: 13px;
+				height: 13px;
+				background: $mainAccent;
+				display: block;
+				border-radius: 12px;
+				float: left;
+				margin-left: -37px;
+			}
+			&:hover {
+				border-color: $sidebarColor;
+			}
+		}
+	}
+}
+
+/* =================================
+   User list
+   ================================= */
+.user-list {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+	li {
+		overflow: hidden;
+		position: relative;
+		margin-bottom: 15px;
+		small {
+			display: block;
+			font-weight: normal;
+			color: $defaultMute;
+		}
+		img {
+			float: left;
+			margin-right: 10px;
+			max-height: 50px;
+		}
+		a {
+			font-weight: bold;
+		}
+		i {
+			position: absolute;
+			right: 0;
+			top: 15px;
+		}
+	}
+}
+
+.status-online {
+	color: $moduleGreen;
+}
+
+.status-offline {
+	color: $moduleRed;
+}
+
+/* =================================
+   Knobs
+   ================================= */
+.donut-stats {
+	display: inline-block;
+	margin: 15px 10px;
+	text-align: center;
+}
+
+/* =================================
+   Dropdown menu
+   ================================= */
+.dropdown-menu {
+	@include noRadius;
+	border-width: 2px;
+	border-color: $sidebarColor;
+}
+
+.dropdown-menu > li > a:hover, .dropdown-menu > li > a:focus {
+	background: $sidebarColor;
+}
+
+/* =================================
+   Morris.js
+   ================================= */
+.chart {
+	height: 200px;
+}
+
+.morris-hover {
+    position: absolute;
+    z-index: 1000;
+}
+
+.morris-hover.morris-default-style {
+    padding: 6px;
+    color: #666;
+    background: rgba(255, 255, 255, 0.9);
+    border: solid 2px $mainAccent;
+    font-size: 14px;
+    text-align: center;
+}
+
+.morris-hover.morris-default-style .morris-hover-row-label {
+    font-weight: bold;
+    margin: 0.25em 0;
+}
+
+.morris-hover.morris-default-style .morris-hover-point {
+    white-space: nowrap;
+    margin: 0.1em 0;
+}
+
+/* =================================
+   Full calendar
+   ================================= */
+.fc {
+	direction: ltr;
+	text-align: left;
+	}
+	
+.fc table {
+	border-collapse: collapse;
+	border-spacing: 0;
+	}
+	
+html .fc,
+.fc table {
+	font-size: 1em;
+	}
+	
+.fc td,
+.fc th {
+	padding: 0;
+	vertical-align: top;
+	}
+
+
+
+/* Header
+------------------------------------------------------------------------*/
+
+.fc-header td {
+	white-space: nowrap;
+	}
+
+.fc-header-left {
+	width: 25%;
+	text-align: left;
+	}
+	
+.fc-header-center {
+	text-align: center;
+	}
+	
+.fc-header-right {
+	width: 25%;
+	text-align: right;
+	}
+	
+.fc-header-title {
+	display: inline-block;
+	vertical-align: top;
+	}
+	
+.fc-header-title h2 {
+	margin-top: 0;
+	white-space: nowrap;
+	color: $mainAccent;
+	font-size: 24px;
+	}
+	
+.fc .fc-header-space {
+	padding-left: 10px;
+	}
+	
+.fc-header .fc-button {
+	margin-bottom: 1em;
+	vertical-align: top;
+	}
+	
+/* buttons edges butting together */
+
+.fc-header .fc-button {
+	margin-right: -1px;
+	}
+	
+.fc-header .fc-corner-right,  /* non-theme */
+.fc-header .ui-corner-right { /* theme */
+	margin-right: 0; /* back to normal */
+	}
+	
+/* button layering (for border precedence) */
+	
+.fc-header .fc-state-hover,
+.fc-header .ui-state-hover {
+	z-index: 2;
+	}
+	
+.fc-header .fc-state-down {
+	z-index: 3;
+	}
+
+.fc-header .fc-state-active,
+.fc-header .ui-state-active {
+	z-index: 4;
+	}
+	
+	
+	
+/* Content
+------------------------------------------------------------------------*/
+	
+.fc-content {
+	clear: both;
+	zoom: 1; /* for IE7, gives accurate coordinates for [un]freezeContentHeight */
+	}
+	
+.fc-view {
+	width: 100%;
+	overflow: hidden;
+	}
+	
+	
+
+/* Cell Styles
+------------------------------------------------------------------------*/
+
+.fc-widget-header,    /* <th>, usually */
+.fc-widget-content {  /* <td>, usually */
+	border: 1px solid #ddd;
+	}
+	
+.fc-state-highlight { /* <td> today cell */ /* TODO: add .fc-today to <th> */
+	background: #fcf8e3;
+	}
+	
+.fc-cell-overlay { /* semi-transparent rectangle while dragging */
+	background: #bce8f1;
+	opacity: .3;
+	filter: alpha(opacity=30); /* for IE */
+	}
+	
+
+
+/* Buttons
+------------------------------------------------------------------------*/
+
+.fc-button {
+	position: relative;
+	display: inline-block;
+	padding: 0 .6em;
+	overflow: hidden;
+	height: 1.9em;
+	line-height: 1.9em;
+	white-space: nowrap;
+	cursor: pointer;
+	}
+	
+.fc-state-default { /* non-theme */
+	border: 1px solid;
+	}
+
+/*
+	Our default prev/next buttons use HTML entities like &lsaquo; &rsaquo; &laquo; &raquo;
+	and we'll try to make them look good cross-browser.
+*/
+
+.fc-text-arrow {
+	margin: 0 .1em;
+	font-size: 2em;
+	font-family: "Courier New", Courier, monospace;
+	vertical-align: baseline; /* for IE7 */
+	}
+
+.fc-button-prev .fc-text-arrow,
+.fc-button-next .fc-text-arrow { /* for &lsaquo; &rsaquo; */
+	font-weight: bold;
+	}
+	
+/* icon (for jquery ui) */
+	
+.fc-button .fc-icon-wrap {
+	position: relative;
+	float: left;
+	top: 50%;
+	}
+	
+.fc-button .ui-icon {
+	position: relative;
+	float: left;
+	margin-top: -50%;
+	*margin-top: 0;
+	*top: -50%;
+	}
+	
+/*
+  button states
+  borrowed from twitter bootstrap (http://twitter.github.com/bootstrap/)
+*/
+
+.fc-state-default {
+	background-color: $defaultGray;
+	border-color: $defaultGray;
+	color: #333;
+	}
+
+.fc-state-hover,
+.fc-state-down,
+.fc-state-active,
+.fc-state-disabled {
+	color: #fff !important;
+	background-color: $mainAccent !important;
+	border-color: $mainAccent;
+	}
+
+.fc-state-hover {
+	color: #fff;
+	text-decoration: none;
+	.fc-text-arrow {
+		color: #fff;
+	}
+	}
+
+.fc-state-down,
+.fc-state-active {
+	background-color: #cccccc;
+	background-image: none;
+	outline: 0;
+	box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.15), 0 1px 2px rgba(0, 0, 0, 0.05);
+	}
+
+.fc-state-disabled {
+	cursor: default;
+	background-image: none;
+	opacity: 0.65;
+	filter: alpha(opacity=65);
+	box-shadow: none;
+	}
+
+	
+
+/* Global Event Styles
+------------------------------------------------------------------------*/
+
+.fc-event-container > * {
+	z-index: 8;
+	}
+
+.fc-event-container > .ui-draggable-dragging,
+.fc-event-container > .ui-resizable-resizing {
+	z-index: 9;
+	}
+	 
+.fc-event {
+	border: 1px solid $sidebarColor; /* default BORDER color */
+	background-color: $sidebarColor; /* default BACKGROUND color */
+	color: #fff;               /* default TEXT color */
+	font-size: .85em;
+	cursor: default;
+	&:hover {
+		background-color: $mainAccent;
+		border-color: $mainAccent;
+	}
+}
+
+a.fc-event {
+	text-decoration: none;
+	}
+	
+a.fc-event,
+.fc-event-draggable {
+	cursor: pointer;
+	}
+	
+.fc-rtl .fc-event {
+	text-align: right;
+	}
+
+.fc-event-inner {
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+	}
+	
+.fc-event-time,
+.fc-event-title {
+	padding: 0 1px;
+	}
+	
+.fc .ui-resizable-handle {
+	display: block;
+	position: absolute;
+	z-index: 99999;
+	overflow: hidden; /* hacky spaces (IE6/7) */
+	font-size: 300%;  /* */
+	line-height: 50%; /* */
+	}
+	
+	
+	
+/* Horizontal Events
+------------------------------------------------------------------------*/
+
+.fc-event-hori {
+	border-width: 1px 0;
+	margin-bottom: 1px;
+	}
+
+.fc-ltr .fc-event-hori.fc-event-start,
+.fc-rtl .fc-event-hori.fc-event-end {
+	border-left-width: 1px;
+	}
+
+.fc-ltr .fc-event-hori.fc-event-end,
+.fc-rtl .fc-event-hori.fc-event-start {
+	border-right-width: 1px;
+	}
+	
+/* resizable */
+	
+.fc-event-hori .ui-resizable-e {
+	top: 0           !important; /* importants override pre jquery ui 1.7 styles */
+	right: -3px      !important;
+	width: 7px       !important;
+	height: 100%     !important;
+	cursor: e-resize;
+	}
+	
+.fc-event-hori .ui-resizable-w {
+	top: 0           !important;
+	left: -3px       !important;
+	width: 7px       !important;
+	height: 100%     !important;
+	cursor: w-resize;
+	}
+	
+.fc-event-hori .ui-resizable-handle {
+	_padding-bottom: 14px; /* IE6 had 0 height */
+	}
+	
+	
+	
+/* Reusable Separate-border Table
+------------------------------------------------------------*/
+
+table.fc-border-separate {
+	border-collapse: separate;
+	}
+	
+.fc-border-separate th,
+.fc-border-separate td {
+	border-width: 1px 0 0 1px;
+	}
+	
+.fc-border-separate th.fc-last,
+.fc-border-separate td.fc-last {
+	border-right-width: 1px;
+	}
+	
+.fc-border-separate tr.fc-last th,
+.fc-border-separate tr.fc-last td {
+	border-bottom-width: 1px;
+	}
+	
+.fc-border-separate tbody tr.fc-first td,
+.fc-border-separate tbody tr.fc-first th {
+	border-top-width: 0;
+	}
+	
+	
+
+/* Month View, Basic Week View, Basic Day View
+------------------------------------------------------------------------*/
+
+.fc-grid th {
+	text-align: center;
+	}
+
+.fc .fc-week-number {
+	width: 22px;
+	text-align: center;
+	}
+
+.fc .fc-week-number div {
+	padding: 0 2px;
+	}
+	
+.fc-grid .fc-day-number {
+	float: right;
+	padding: 0 2px;
+	}
+	
+.fc-grid .fc-other-month .fc-day-number {
+	opacity: 0.3;
+	filter: alpha(opacity=30); /* for IE */
+	/* opacity with small font can sometimes look too faded
+	   might want to set the 'color' property instead
+	   making day-numbers bold also fixes the problem */
+	}
+	
+.fc-grid .fc-day-content {
+	clear: both;
+	padding: 2px 2px 1px; /* distance between events and day edges */
+	}
+	
+/* event styles */
+	
+.fc-grid .fc-event-time {
+	font-weight: bold;
+	}
+	
+/* right-to-left */
+	
+.fc-rtl .fc-grid .fc-day-number {
+	float: left;
+	}
+	
+.fc-rtl .fc-grid .fc-event-time {
+	float: right;
+	}
+	
+	
+
+/* Agenda Week View, Agenda Day View
+------------------------------------------------------------------------*/
+
+.fc-agenda table {
+	border-collapse: separate;
+	}
+	
+.fc-agenda-days th {
+	text-align: center;
+	}
+	
+.fc-agenda .fc-agenda-axis {
+	width: 50px;
+	padding: 0 4px;
+	vertical-align: middle;
+	text-align: right;
+	white-space: nowrap;
+	font-weight: normal;
+	}
+
+.fc-agenda .fc-week-number {
+	font-weight: bold;
+	}
+	
+.fc-agenda .fc-day-content {
+	padding: 2px 2px 1px;
+	}
+	
+/* make axis border take precedence */
+	
+.fc-agenda-days .fc-agenda-axis {
+	border-right-width: 1px;
+	}
+	
+.fc-agenda-days .fc-col0 {
+	border-left-width: 0;
+	}
+	
+/* all-day area */
+	
+.fc-agenda-allday th {
+	border-width: 0 1px;
+	}
+	
+.fc-agenda-allday .fc-day-content {
+	min-height: 34px; /* TODO: doesnt work well in quirksmode */
+	_height: 34px;
+	}
+	
+/* divider (between all-day and slots) */
+	
+.fc-agenda-divider-inner {
+	height: 2px;
+	overflow: hidden;
+	}
+	
+.fc-widget-header .fc-agenda-divider-inner {
+	background: #eee;
+	}
+	
+/* slot rows */
+	
+.fc-agenda-slots th {
+	border-width: 1px 1px 0;
+	}
+	
+.fc-agenda-slots td {
+	border-width: 1px 0 0;
+	background: none;
+	}
+	
+.fc-agenda-slots td div {
+	height: 20px;
+	}
+	
+.fc-agenda-slots tr.fc-slot0 th,
+.fc-agenda-slots tr.fc-slot0 td {
+	border-top-width: 0;
+	}
+
+.fc-agenda-slots tr.fc-minor th,
+.fc-agenda-slots tr.fc-minor td {
+	border-top-style: dotted;
+	}
+	
+.fc-agenda-slots tr.fc-minor th.ui-widget-header {
+	*border-top-style: solid; /* doesn't work with background in IE6/7 */
+	}
+	
+
+
+/* Vertical Events
+------------------------------------------------------------------------*/
+
+.fc-event-vert {
+	border-width: 0 1px;
+	}
+
+.fc-event-vert.fc-event-start {
+	border-top-width: 1px;
+	}
+
+.fc-event-vert.fc-event-end {
+	border-bottom-width: 1px;
+	}
+	
+.fc-event-vert .fc-event-time {
+	white-space: nowrap;
+	font-size: 10px;
+	}
+
+.fc-event-vert .fc-event-inner {
+	position: relative;
+	z-index: 2;
+	}
+	
+.fc-event-vert .fc-event-bg { /* makes the event lighter w/ a semi-transparent overlay  */
+	position: absolute;
+	z-index: 1;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: #fff;
+	opacity: .25;
+	filter: alpha(opacity=25);
+	}
+	
+.fc .ui-draggable-dragging .fc-event-bg, /* TODO: something nicer like .fc-opacity */
+.fc-select-helper .fc-event-bg {
+	display: none\9; /* for IE6/7/8. nested opacity filters while dragging don't work */
+	}
+	
+/* resizable */
+	
+.fc-event-vert .ui-resizable-s {
+	bottom: 0        !important; /* importants override pre jquery ui 1.7 styles */
+	width: 100%      !important;
+	height: 8px      !important;
+	overflow: hidden !important;
+	line-height: 8px !important;
+	font-size: 11px  !important;
+	font-family: monospace;
+	text-align: center;
+	cursor: s-resize;
+	}
+	
+.fc-agenda .ui-resizable-resizing { /* TODO: better selector */
+	_overflow: hidden;
+	}
+
+/* =================================
+   Mobile
+   ================================= */
+@media (max-width: 767px)
+{
+	/* Sidebar Hide */
+	#wrapper {
+		padding-left: 0;
+	}
+
+	#sidebar-wrapper {
+		left: 0;
+	}
+
+	#wrapper.active {
+		position: relative;
+		left: $sidebarWidth;
+	}
+
+	#wrapper.active #sidebar-wrapper {
+		left: $sidebarWidth;
+		width: $sidebarWidth;
+		@include animationEase;
+	}
+	
+	/* Header */
+	.user-dropdown span {
+		display: none;
+	}
+
+	#show-menu {
+		display: inline-block;
+	}
+
+	/* Custom Paddings */
+	.main-content.padding {
+		padding: 15px;
+	}
+}
+
+/* =================================
+   Demo styles, not needed...
+   ================================= */
+.demo-buttons button {
+	margin-bottom: 10px;
+}
+
+.the-icons .col-sm-3 a [class^="icon-"], .the-icons .col-sm-3 a [class*=" icon-"] {
+    display: inline-block;
+    font-size: 14px;
+    margin-right: 10px;
+    text-align: right;
+    width: 32px;
+}
+
+.the-icons a {
+    color: $sidebarColor;
+}

@@ -1,0 +1,131 @@
+@mixin makeModule($color) {
+	border-color: $color;
+	.module-header {
+		background: $color;
+	}
+	h1 {
+		color: $color;
+	}
+}
+
+.module {
+	background: #fff;
+	border-bottom: 2px solid $moduleDefault;
+	margin-bottom: 20px;
+	.module-header {
+		background: $moduleDefault;
+		color: #fff;
+		padding: 15px 20px;
+		&.no-padding {
+			padding: 0;
+		}
+		& > .nav {
+			font-family: "Montserrat", sans-serif;
+		}
+		h4 {
+			margin: 0;
+			padding: 0;
+		}
+	}
+	.module-content {
+		padding: 15px 20px;
+	}
+	&.no-padding .module-content {
+		padding: 0;
+		table {
+			margin-bottom: 0;
+		}
+	}
+}
+
+.box-module {
+	background: #fff;
+	padding: 15px;
+	margin-bottom: 15px;
+	border-top: 3px solid $mainAccent;
+	@include animationEase;
+	small {
+		color: $defaultMute;
+		font-size: 14px;
+	}
+	h3 {
+		margin-top: 0;
+		color: $sidebarColor;
+		span, i {
+			color: $defaultMute;
+		}
+		span {
+			font-size: 13px;
+		}
+	}
+	.stats-positive {
+		span, i {
+			color: $moduleGreen;
+		}
+	}
+	.stats-negative {
+		span, i {
+			color: $moduleRed;
+		}
+	}
+	.stats-stagnant {
+		span, i {
+			color: $moduleOrange;
+		}
+	}
+	.mini-graph {
+		float: left;
+		margin-right: 10px;
+	}
+}
+
+.module-green {
+	@include makeModule($moduleGreen);
+}
+
+.module-orange {
+	@include makeModule($moduleOrange);
+}
+
+.module-red {
+	@include makeModule($moduleRed);
+}
+
+.module-blue {
+	@include makeModule($moduleBlue);
+}
+
+.module-yellow {
+	@include makeModule($moduleYellow);
+}
+
+.module-grape {
+	@include makeModule($moduleGrape);
+}
+
+.module-pink {
+	@include makeModule($modulePink);
+}
+
+.module-purple {
+	@include makeModule($modulePurple);
+}
+
+.module-deepsea {
+	@include makeModule($moduleDeepSea);
+}
+
+.module-content .module-subtitle:first-child {
+	margin-top: 0;
+}
+
+.module-subtitle {
+	margin-bottom: 15px;
+	box-shadow: inset 0 -2px 0 #eee;
+	padding: 0 0 9px 0;
+	color: #7f7f7f;
+	span {
+		padding-bottom: 5px;
+		border-bottom: 2px solid $mainAccent;
+	}
+}

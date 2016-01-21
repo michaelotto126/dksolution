@@ -1,0 +1,37 @@
+.otoHeadline{
+	text-align: center;
+}
+
+.otoHeading{
+	padding-top: 20px;
+	display: block;
+	text-align: center;
+	font-size: 27px;
+	font-weight: bold;
+}
+
+.otoSubHeading{
+	font-size: 18px;
+	color: #939393;
+	padding-top: 20px; 
+	margin-bottom: 20px;
+}
+
+.receipt{
+	padding: 20px;
+	font-size: 16px;
+	color: #FFF;
+	border-radius: 6px;
+	margin: 20px;
+	background-color: #46484C;
+	/*text-align: left;*/
+}
+
+.otoPrice{
+	margin-left: 10px;
+	border-radius: 6px;
+	background-color: #6b6e76;
+	color: #FFF;
+	padding: 5px;
+	font-weight: bold;
+}

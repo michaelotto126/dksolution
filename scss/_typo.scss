@@ -1,0 +1,17 @@
+body {
+	font-family: "Maven Pro", sans-serif;
+	font-size: 16px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	font-family: "Montserrat", sans-serif;
+}
+
+a {
+	color: $mainAccent;
+}
+
+a:hover, a:active, a:focus {
+	text-decoration: none;
+	color: $sidebarColor;
+}

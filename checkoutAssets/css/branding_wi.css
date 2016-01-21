@@ -1,0 +1,25 @@
+/*CSS File For The Branding Of Each Product*/
+
+.topWrapper{
+	background-color: #25252A;
+	border-bottom: 3px solid #d0d0d0;
+	padding-top: 5px;
+	/*padding-bottom: 5px;*/
+}
+
+.productReceiptHeadline{
+	/*background-color: #25252A;
+	background-image: url(http://32m2hb3mwsqi1qmpxz1pljcd5a.wpengine.netdna-cdn.com/wp-content/uploads/2013/07/chalk2.png);
+	border-bottom: 2px solid rgba(0, 0, 0, 0.2);*/
+	/*border-bottom: 2px solid #E34A1E;*/
+}
+
+.productPrice{
+	/*background-color: #E34A1E;
+	border-bottom: 2px solid #E34A1E;*/
+	/*color: #FFF;
+
+	background-color: #fdce71;
+	border-bottom: 2px solid rgba(0, 0, 0, 0.2);
+	color: #614611;*/
+}

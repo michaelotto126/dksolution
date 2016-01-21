@@ -1,0 +1,8 @@
+/.project
+/.settings
+/.buildpath
+/CONTRIBUTING.md
+vendor/
+/artisan
+/composer.json
+/composer.lock

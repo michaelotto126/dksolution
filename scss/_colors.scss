@@ -1,0 +1,30 @@
+// Main layout colors
+$siteHeader: 		#fff;
+$sidebarColor: 		#2b3035;
+$iconSidebarColor: 	#32383d;
+
+$body: 			#eeeeee;
+$mainAccent: 	#767197; // 5bb2d3 (Blue), 6dba89 (Green), 767197 (Purple)
+
+// Typography colors
+$defaultGray: 	#e8e8e8;
+$defaultMute: 	#a1a1a1;
+
+// Color variations
+$moduleBg: 		#ffffff;
+$moduleDefault: lighten($sidebarColor, 20%);
+$moduleGreen: 	#6dba89;
+$moduleOrange: 	#e68a72;
+$moduleRed: 	#d54a51;
+$moduleBlue: 	#6eb8d3;
+$moduleYellow: 	#ffd36d;
+$moduleGrape: 	#ed5564;
+$modulePink: 	#ec87c1;
+$modulePurple: 	#a77a94;
+$moduleDeepSea: #247882;
+$moduleLime:    #BFD841;
+
+// Button variations
+$moduleFacebook: #3b5998;
+$moduleTwitter:  #00acee;
+$moduleLinkedIn: #1783bc;
